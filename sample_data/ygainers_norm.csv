@@ -1,0 +1,4 @@
+symbol,price,price_change,price_percent_change
+AAPL,150.00,1.50,1.01
+GOOG,2500.00,20.00,0.80
+MSFT,300.00,2.00,0.67
