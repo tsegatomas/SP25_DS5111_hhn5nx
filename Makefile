@@ -19,3 +19,11 @@ wsjgainers.html:
 
 wsjgainers.csv: wsjgainers.html
 	. env/bin/activate && python3 -c "import pandas as pd; raw = pd.read_html('wsjgainers.html'); raw[0].to_csv('wsjgainers.csv', index=False)"
+
+.PHONY: test
+test:
+	pytest tests/
+.PHONY: gainers
+gainers:
+	@echo "Running gainers pipeline with SRC=$(SRC)"
+	python main_script.py $(SRC)
