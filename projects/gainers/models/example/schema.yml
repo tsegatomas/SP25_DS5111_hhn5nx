@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: enfr
+    description: "EN → FR pairs from the seed"
+    columns:
+      - name: EN
+        tests:
+          - not_null
+      - name: FR
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['un', 'deux', 'trois']
+
+  - name: ende
+    description: "EN → DE pairs from the seed"
+    columns:
+      - name: EN
+        tests:
+          - not_null
+      - name: DE
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['einz', 'zwei', 'drei']
+
+  - name: enfr
+    description: "ensure all values in EN column are also in ENDE"
+    columns:
+      - name: EN
+        tests:
+          - relationships:
+              to: ref('ende')
+              field: EN
